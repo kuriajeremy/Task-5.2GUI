@@ -51,16 +51,22 @@ Steps:
 2.	Paste PWM test code
 3.	Run using python3 pwm_test.py
 4.	Observe LED fading effect
+
 Part 2: GUI Implementation
 Steps:
-5.	Create a file slider_gui.py in /home/pi/
-6.	Paste the GUI code with slider
-7.	Run using python3 slider_gui.py
+
+6.	Create a file slider_gui.py in /home/pi/
+7.	Paste the GUI code with slider
+8.	Run using python3 slider_gui.py
+
 GUI Features:
+
 1.	Radio buttons for room selection
 2.	Slider to control living room brightness
 3.	Exit button for safe shutdown
+
 System Behavior
+
 1.	Living room LED brightness changes with slider
 2.	Other LEDs operate as ON/OFF
 3.	Only one room is active at a time

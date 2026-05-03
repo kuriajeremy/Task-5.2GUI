@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "author": "Jeremy Kuria",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -41.4, "left": 2.8, "attrs": {} },
+
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 135.1,
+      "left": 199.65,
+      "rotate": 90,
+      "attrs": { "env": "micropython-20241129-v1.24.1" }
+    },
+
+    {
+      "type": "wokwi-led",
+      "id": "living_led",
+      "top": -22.8,
+      "left": 13.8,
+      "attrs": { "color": "green", "flip": "1", "label": "Living Room (PWM - GP18)" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "bathroom_led",
+      "top": -22.8,
+      "left": 90.6,
+      "attrs": { "color": "blue", "flip": "1", "label": "Bathroom (GP14)" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "closet_led",
+      "top": -22.8,
+      "left": 196.2,
+      "attrs": { "color": "red", "flip": "1", "label": "Closet (GP16)" }
+    },
+
+    {
+      "type": "wokwi-resistor",
+      "id": "r_living",
+      "top": 80.75,
+      "left": 28.8,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_bathroom",
+      "top": 80.75,
+      "left": 105.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_closet",
+      "top": 80.75,
+      "left": 211.2,
+      "attrs": { "value": "220" }
+    }
+  ],
+
+  "connections": [
+    
+    [ "bb1:tn.25", "pico:GND.1", "black", [ "v0" ] ],
+
+  
+    [ "living_led:A", "bb1:1t.b", "", [ "$bb" ] ],
+    [ "living_led:C", "bb1:2t.b", "", [ "$bb" ] ],
+    [ "living_led:C", "bb1:4t.b", "black", [ "v0" ] ],
+    [ "bb1:4t.a", "bb1:tn.3", "black", [ "v0" ] ],
+
+    [ "bb1:1t.e", "bb1:1b.f", "orange", [ "v0" ] ],
+    [ "r_living:1", "bb1:1b.g", "", [ "$bb" ] ],
+    [ "r_living:2", "bb1:15b.g", "", [ "$bb" ] ],
+    [ "bb1:15b.j", "pico:GP18", "orange", [ "v57.6", "h-28.8" ] ],
+
+  
+    [ "bathroom_led:A", "bb1:9t.b", "", [ "$bb" ] ],
+    [ "bathroom_led:C", "bb1:10t.b", "", [ "$bb" ] ],
+    [ "bathroom_led:C", "bb1:12t.b", "black", [ "v0" ] ],
+    [ "bb1:12t.a", "bb1:tn.10", "black", [ "v0" ] ],
+
+    [ "bb1:9t.e", "bb1:9b.f", "violet", [ "v0" ] ],
+    [ "r_bathroom:1", "bb1:9b.g", "", [ "$bb" ] ],
+    [ "r_bathroom:2", "bb1:7b.g", "", [ "$bb" ] ],
+    [ "bb1:7b.j", "pico:GP14", "violet", [ "v67.2", "h67.2" ] ],
+
+
+    [ "closet_led:A", "bb1:20t.b", "", [ "$bb" ] ],
+    [ "closet_led:C", "bb1:21t.b", "", [ "$bb" ] ],
+    [ "closet_led:C", "bb1:23t.b", "black", [ "v0" ] ],
+    [ "bb1:23t.a", "bb1:tn.19", "black", [ "v0" ] ],
+
+    [ "bb1:20t.e", "bb1:20b.f", "blue", [ "v0" ] ],
+    [ "r_closet:1", "bb1:20b.g", "", [ "$bb" ] ],
+    [ "r_closet:2", "bb1:26b.g", "", [ "$bb" ] ],
+    [ "bb1:26b.j", "pico:GP16", "blue", [ "v182.4", "h-9.6" ] ]
+  ],
+
+  "dependencies": {}
+}
